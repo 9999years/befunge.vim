@@ -3,8 +3,8 @@
 " Maintainer: Rebecca Turner <rbt@sent.as>
 " Repository: github.com/9999years/befunge.vim
 
-" if exists('b:did_befunge_syntax') | finish | endif
-" let b:did_befunge_syntax = 1
+if exists('b:did_befunge_syntax') | finish | endif
+let b:did_befunge_syntax = 1
 
 let s:cpo_save = &cpo
 set cpo&vim
@@ -25,6 +25,7 @@ syn match bfFlow '[#@]\+' display
 
 syn region bfString start=+"+ end=+"+
 syn region bfComment start=';' end='$'
+syn region bfInlineComment start='(' end=')'
 
 hi link bfArithmetic Operator
 hi link bfGreaterThan Operator
@@ -40,6 +41,7 @@ hi link bfStackMisc Operator
 hi link bfFlow Special
 
 hi link bfComment Comment
+hi link bfInlineComment Comment
 hi link bfString String
 
 let b:current_syntax = "befunge"
